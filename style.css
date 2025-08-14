@@ -1291,7 +1291,20 @@ footer {
     align-items: center;
     justify-content: center;
     padding: 12px 25px;
-    background-color: #25D366;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}/* WhatsApp Button */
+.btn-pl {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    background-color: #fe9540;
     color: white;
     border-radius: 50px;
     text-decoration: none;
@@ -1319,6 +1332,13 @@ footer {
 .btn-wa:hover, .btn-ig:hover {
     transform: translateY(-3px);
     opacity: 0.9;
+}.btn-pl:hover, .btn-ig:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+.btn-pl:hover, .btn-ig:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
 }
 
 /* Icons */
@@ -1335,7 +1355,7 @@ footer {
         gap: 15px;
     }
     
-    .btn-wa, .btn-ig {
+    .btn-wa, .btn-ig, .btn-pl {
         width: 100%;
         max-width: 280px; /* Lebar maksimal untuk mobile */
         margin: 0; /* Hilangkan margin samping */
@@ -1581,7 +1601,7 @@ footer {
     }
     
     /* Perkecil tombol WA/IG untuk kontras */
-    .btn-wa, .btn-ig {
+    .btn-wa, .btn-ig, .btn-pl {
         max-width: 200px;
         padding: 10px 20px;
         font-size: 0.9em;
