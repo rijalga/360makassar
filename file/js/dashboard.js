@@ -445,7 +445,7 @@ function updatePreview(links) {
 // ===== LOGOUT =====
 logoutBtn.addEventListener('click', async () => {
     if (await logout()) {
-        window.location.href = '/login.html';
+        window.location.href = './login.html';  // ← PERBAIKI: pakai ./
     } else {
         alert('Gagal logout. Coba lagi.');
     }
