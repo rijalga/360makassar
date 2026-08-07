@@ -20,7 +20,7 @@ export async function getSession() {
 export async function requireAuth() {
     const session = await getSession();
     if (!session) {
-        window.location.href = '/login.html';
+        window.location.href = './login.html';  // ← PERBAIKI: pakai ./
         return null;
     }
     return session;
