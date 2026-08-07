@@ -179,24 +179,24 @@ body {
 }
 
 /* ============================================
-   ===== LINKS (DENGAN THUMBNAIL) =====
+   ===== LINKS (DENGAN THUMBNAIL) - UPDATED =====
    ============================================ */
 
 .links-container {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px; /* ← dari 12px jadi 10px */
 }
 
 .link-card {
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding: 16px 20px;
+    gap: 12px; /* ← dari 14px jadi 12px */
+    padding: 12px 16px; /* ← dari 16px 20px jadi 12px 16px */
     background: var(--card-bg);
     backdrop-filter: var(--glass-blur);
     border: var(--card-border);
-    border-radius: var(--card-radius);
+    border-radius: 14px; /* ← dari 12px jadi 14px */
     color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
@@ -206,6 +206,18 @@ body {
     cursor: pointer;
     position: relative;
     overflow: hidden;
+}
+
+/* ===== GLASSMORPHISM LEBIH TEBAL (DARK MODE) ===== */
+[data-theme="dark"] .link-card {
+    background: rgba(255, 255, 255, 0.10); /* ← dari 0.06 jadi 0.10 */
+    border: 1px solid rgba(255, 255, 255, 0.12); /* ← dari 0.08 jadi 0.12 */
+}
+
+[data-theme="light"] .link-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .link-card::before {
@@ -241,31 +253,34 @@ body {
 
 .link-card .link-title {
     flex: 1;
-    font-weight: 500;
+    font-weight: 600; /* ← dari 500 jadi 600 */
+    font-size: 15px; /* ← tambahan untuk mobile */
 }
 
 .link-card .link-arrow {
-    font-size: 14px;
+    font-size: 12px; /* ← dari 14px jadi 12px */
     color: var(--text-muted);
     transition: all var(--transition);
+    opacity: 0.6; /* ← tambahan */
 }
 
 .link-card:hover .link-arrow {
     transform: translateX(4px);
     color: var(--text-primary);
+    opacity: 1;
 }
 
 /* ===== LINK DENGAN THUMBNAIL GAMBAR ===== */
 .link-card.link-with-image {
-    padding: 8px 16px 8px 8px;
+    padding: 8px 12px 8px 8px; /* ← dari 8px 16px 8px 8px jadi 8px 12px 8px 8px */
     gap: 12px;
 }
 
 .link-thumbnail {
-    width: 48px;
-    height: 48px;
+    width: 44px; /* ← dari 48px jadi 44px */
+    height: 44px;
     flex-shrink: 0;
-    border-radius: 8px;
+    border-radius: 10px; /* ← dari 8px jadi 10px */
     overflow: hidden;
     background: var(--input-bg);
 }
@@ -284,22 +299,6 @@ body {
     text-align: center;
 }
 
-.link-card .link-title {
-    flex: 1;
-    font-weight: 500;
-}
-
-.link-card .link-arrow {
-    font-size: 14px;
-    color: var(--text-muted);
-    transition: all var(--transition);
-}
-
-.link-card:hover .link-arrow {
-    transform: translateX(4px);
-    color: var(--text-primary);
-}
-
 /* ===== FOOTER ===== */
 .footer {
     margin-top: 40px;
@@ -310,33 +309,60 @@ body {
     padding-top: 20px;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ============================================
+   ===== RESPONSIVE MOBILE - UPDATED =====
+   ============================================ */
+
 @media (max-width: 640px) {
     body {
-        padding: 20px 16px;
+        padding: 16px 12px; /* ← dari 20px 16px jadi 16px 12px */
+    }
+
+    .profile {
+        margin-bottom: 28px; /* ← dari 40px jadi 28px */
+        padding-top: 12px;  /* ← dari 20px jadi 12px */
     }
 
     .avatar {
-        width: 80px;
-        height: 80px;
+        width: 100px; /* TETAP 100px (sesuai pilihan) */
+        height: 100px;
     }
 
     .display-name {
-        font-size: 20px;
+        font-size: 20px; /* TETAP gradasi (sesuai pilihan) */
+    }
+
+    .bio {
+        font-size: 14px;
+        padding: 0 8px;
+    }
+
+    .links-container {
+        gap: 10px;
     }
 
     .link-card {
-        padding: 14px 16px;
+        padding: 12px 14px; /* ← lebih rapat di mobile */
         font-size: 15px;
+        border-radius: 14px;
     }
 
     .link-card.link-with-image {
-        padding: 6px 12px 6px 6px;
+        padding: 6px 10px 6px 6px; /* ← dari 6px 12px 6px 6px jadi 6px 10px 6px 6px */
     }
 
     .link-thumbnail {
         width: 40px;
         height: 40px;
+        border-radius: 8px;
+    }
+
+    .link-card .link-title {
+        font-size: 15px;
+    }
+
+    .link-card .link-arrow {
+        font-size: 12px;
     }
 
     .theme-toggle {
@@ -345,6 +371,13 @@ body {
         width: 40px;
         height: 40px;
         font-size: 18px;
+        border-radius: 12px; /* ← dari 50% jadi 12px (kotak) */
+    }
+
+    /* ===== EFEK TAP UNTUK MOBILE (BUKAN HOVER) ===== */
+    .link-card:active {
+        transform: scale(0.97);
+        opacity: 0.8;
     }
 }
 
@@ -355,8 +388,16 @@ body {
     }
 
     .link-card.link-with-image {
-        padding: 4px 10px 4px 4px;
+        padding: 4px 8px 4px 4px;
         gap: 8px;
+    }
+
+    .link-card .link-title {
+        font-size: 14px;
+    }
+
+    .link-card .link-arrow {
+        font-size: 11px;
     }
 }
 
