@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mks.Spinbooth - Spinbooth360 & Photobooth</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- Theme Toggle -->
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+            <span class="icon-dark">🌙</span>
+            <span class="icon-light">☀️</span>
+        </button>
+
+        <!-- Profile Section -->
+        <div class="profile">
+            <div class="avatar-wrapper">
+                <img id="avatar" src="https://ui-avatars.com/api/?name=360&background=6366F1&color=fff&size=100" alt="Avatar" class="avatar" />
+            </div>
+            <h1 id="displayName" class="display-name">Mks.Spinbooth - Spinbooth360 &amp; Photobooth</h1>
+            <p id="bio" class="bio">----</p>
+        </div>
+
+        <!-- Links Section (dengan thumbnail) -->
+        <div id="linksContainer" class="links-container">
+            <!-- Links akan di-render oleh JavaScript dengan thumbnail -->
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2023 mks.spinbooth</p>
+        </footer>
+    </div>
+
+    <script type="module" src="js/supabase.js"></script>
+    <script type="module" src="js/public.js"></script>
+</body>
+</html>

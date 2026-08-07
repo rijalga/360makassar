@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Mks.Spinbooth</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Navbar -->
+        <nav class="dashboard-nav">
+            <div class="nav-brand">
+                <span class="brand-icon">⚡</span>
+                <span>Mks.Spinbooth</span>
+            </div>
+            <div class="nav-actions">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="icon-dark">🌙</span>
+                    <span class="icon-light">☀️</span>
+                </button>
+                <button id="logoutBtn" class="btn-logout">Logout</button>
+            </div>
+        </nav>
+
+        <div class="dashboard-grid">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <button class="sidebar-btn active" data-tab="links">🔗 Link</button>
+                <button class="sidebar-btn" data-tab="profile">👤 Profil</button>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Tab: Links -->
+                <section id="tabLinks" class="tab-content active">
+                    <div class="card">
+                        <h2>Tambah Link Baru</h2>
+                        <form id="addLinkForm" class="form-vertical">
+                            <div class="form-group">
+                                <label for="linkTitle">Judul Link</label>
+                                <input type="text" id="linkTitle" placeholder="Judul link" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="linkUrl">URL</label>
+                                <input type="url" id="linkUrl" placeholder="https://..." required />
+                            </div>
+                            <div class="form-group">
+                                <label for="linkIcon">Icon (Emoji)</label>
+                                <select id="linkIcon">
+                                    <option value="📸">📸</option>
+                                    <option value="🔄">🔄</option>
+                                    <option value="💰">💰</option>
+                                    <option value="📱">📱</option>
+                                    <option value="📷">📷</option>
+                                    <option value="🎥">🎥</option>
+                                    <option value="🔗">🔗</option>
+                                    <option value="⭐">⭐</option>
+                                    <option value="🎯">🎯</option>
+                                    <option value="💡">💡</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="linkImage">Gambar Thumbnail (opsional)</label>
+                                <input type="file" id="linkImage" accept="image/*" />
+                                <small>Upload gambar untuk tampil di samping link</small>
+                            </div>
+                            <button type="submit" class="btn-primary">Tambah Link</button>
+                        </form>
+                        <div id="addMessage" class="form-message"></div>
+                    </div>
+
+                    <div class="card">
+                        <h2>Daftar Link <span id="linkCount" class="badge">0</span></h2>
+                        <p class="card-hint">Seret untuk mengurutkan</p>
+                        <div id="linksList" class="links-list">
+                            <!-- Links akan di-render oleh JavaScript dengan SortableJS -->
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h2>Preview Halaman</h2>
+                        <div id="previewContainer" class="preview-container">
+                            <!-- Preview mini dari halaman public -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tab: Profile -->
+                <section id="tabProfile" class="tab-content">
+                    <div class="card">
+                        <h2>Edit Profil</h2>
+                        <form id="profileForm" class="form-vertical">
+                            <div class="form-group">
+                                <label for="profileName">Nama Tampilan</label>
+                                <input type="text" id="profileName" value="Mks.Spinbooth - Spinbooth360 &amp; Photobooth" />
+                            </div>
+                            <div class="form-group">
+                                <label for="profileBio">Bio</label>
+                                <textarea id="profileBio" rows="3">Jasa dokumentasi profesional untuk acara spesial Anda. Spinbooth 360, Photobooth, dan banyak properti menarik.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileAvatar">URL Avatar</label>
+                                <input type="url" id="profileAvatar" placeholder="https://.../avatar.png" />
+                                <small>Masukkan URL gambar (opsional)</small>
+                            </div>
+                            <button type="submit" class="btn-primary">Simpan Profil</button>
+                        </form>
+                        <div id="profileMessage" class="form-message"></div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <script type="module" src="js/supabase.js"></script>
+    <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

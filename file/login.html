@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Mks.Spinbooth</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <img src="assets/favicon.ico" alt="Logo" class="auth-logo" />
+                <h2>Login ke Dashboard</h2>
+                <p class="auth-subtitle">Kelola link Mks.Spinbooth</p>
+            </div>
+
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="masukkan@email.com" required />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="••••••••" required />
+                </div>
+                <button type="submit" class="btn-primary btn-full">Login</button>
+            </form>
+
+            <div id="loginMessage" class="auth-message"></div>
+
+            <p class="auth-footer">
+                Belum punya akun? <a href="#" id="registerLink">Register di sini</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Modal Register -->
+    <div id="registerModal" class="modal hidden">
+        <div class="modal-content auth-card">
+            <span id="closeModal" class="modal-close">&times;</span>
+            <div class="auth-header">
+                <h2>Buat Akun</h2>
+                <p class="auth-subtitle">Register untuk mengelola link</p>
+            </div>
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" placeholder="masukkan@email.com" required />
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password (min. 6 karakter)</label>
+                    <input type="password" id="regPassword" placeholder="••••••••" minlength="6" required />
+                </div>
+                <button type="submit" class="btn-primary btn-full">Register</button>
+            </form>
+            <div id="registerMessage" class="auth-message"></div>
+        </div>
+    </div>
+
+    <script type="module" src="js/supabase.js"></script>
+    <script type="module" src="js/auth.js"></script>
+</body>
+</html>
