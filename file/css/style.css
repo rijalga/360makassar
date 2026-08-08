@@ -185,33 +185,38 @@ body {
 .links-container {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* ← dari 12px jadi 10px */
+    gap: 10px;
+    align-items: center;
 }
 
 .link-card {
     display: flex;
     align-items: center;
-    gap: 12px; /* ← dari 14px jadi 12px */
-    padding: 12px 16px; /* ← dari 16px 20px jadi 12px 16px */
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 20px;
     background: var(--card-bg);
     backdrop-filter: var(--glass-blur);
     border: var(--card-border);
-    border-radius: 14px; /* ← dari 12px jadi 14px */
+    border-radius: 14px;
     color: var(--text-primary);
     text-decoration: none;
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 18px;
     transition: all var(--transition);
     box-shadow: var(--card-shadow);
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
 }
 
 /* ===== GLASSMORPHISM LEBIH TEBAL (DARK MODE) ===== */
 [data-theme="dark"] .link-card {
-    background: rgba(255, 255, 255, 0.10); /* ← dari 0.06 jadi 0.10 */
-    border: 1px solid rgba(255, 255, 255, 0.12); /* ← dari 0.08 jadi 0.12 */
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 [data-theme="light"] .link-card {
@@ -245,23 +250,23 @@ body {
 }
 
 .link-card .link-icon {
-    font-size: 20px;
+    font-size: 24px;
     flex-shrink: 0;
-    width: 32px;
+    width: 36px;
     text-align: center;
 }
 
 .link-card .link-title {
     flex: 1;
-    font-weight: 600; /* ← dari 500 jadi 600 */
-    font-size: 15px; /* ← tambahan untuk mobile */
+    font-weight: 600;
+    font-size: 18px;
 }
 
 .link-card .link-arrow {
-    font-size: 12px; /* ← dari 14px jadi 12px */
+    font-size: 14px;
     color: var(--text-muted);
     transition: all var(--transition);
-    opacity: 0.6; /* ← tambahan */
+    opacity: 0.6;
 }
 
 .link-card:hover .link-arrow {
@@ -272,15 +277,16 @@ body {
 
 /* ===== LINK DENGAN THUMBNAIL GAMBAR ===== */
 .link-card.link-with-image {
-    padding: 8px 12px 8px 8px; /* ← dari 8px 16px 8px 8px jadi 8px 12px 8px 8px */
-    gap: 12px;
+    padding: 10px 16px 10px 10px;
+    gap: 14px;
+    justify-content: flex-start; /* thumbnail tetap di kiri */
 }
 
 .link-thumbnail {
-    width: 44px; /* ← dari 48px jadi 44px */
-    height: 44px;
+    width: 52px;
+    height: 52px;
     flex-shrink: 0;
-    border-radius: 10px; /* ← dari 8px jadi 10px */
+    border-radius: 10px;
     overflow: hidden;
     background: var(--input-bg);
 }
@@ -292,11 +298,27 @@ body {
     display: block;
 }
 
-.link-card .link-icon {
-    font-size: 20px;
+/* ===== TEKS LINK RATA TENGAH (UNTUK YANG ADA THUMBNAIL) ===== */
+.link-card.link-with-image .link-title {
+    flex: 1;
+    text-align: center; /* ← ini yang bikin teks di tengah */
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* ===== PANAH TETAP DI KANAN ===== */
+.link-card.link-with-image .link-arrow {
     flex-shrink: 0;
-    width: 32px;
-    text-align: center;
+    font-size: 14px;
+    color: var(--text-muted);
+    transition: all var(--transition);
+    opacity: 0.6;
+}
+
+.link-card.link-with-image:hover .link-arrow {
+    transform: translateX(4px);
+    color: var(--text-primary);
+    opacity: 1;
 }
 
 /* ===== FOOTER ===== */
@@ -315,21 +337,21 @@ body {
 
 @media (max-width: 640px) {
     body {
-        padding: 16px 12px; /* ← dari 20px 16px jadi 16px 12px */
+        padding: 16px 12px;
     }
 
     .profile {
-        margin-bottom: 28px; /* ← dari 40px jadi 28px */
-        padding-top: 12px;  /* ← dari 20px jadi 12px */
+        margin-bottom: 28px;
+        padding-top: 12px;
     }
 
     .avatar {
-        width: 100px; /* TETAP 100px (sesuai pilihan) */
+        width: 100px;
         height: 100px;
     }
 
     .display-name {
-        font-size: 20px; /* TETAP gradasi (sesuai pilihan) */
+        font-size: 20px;
     }
 
     .bio {
@@ -339,30 +361,46 @@ body {
 
     .links-container {
         gap: 10px;
+        align-items: center;
     }
 
     .link-card {
-        padding: 12px 14px; /* ← lebih rapat di mobile */
-        font-size: 15px;
+        padding: 16px 20px;
+        font-size: 18px;
         border-radius: 14px;
+        width: 100%;
+        max-width: 500px;
+        justify-content: center;
+        text-align: center;
     }
 
     .link-card.link-with-image {
-        padding: 6px 10px 6px 6px; /* ← dari 6px 12px 6px 6px jadi 6px 10px 6px 6px */
+        padding: 10px 14px 10px 10px;
+        justify-content: flex-start;
     }
 
     .link-thumbnail {
-        width: 40px;
-        height: 40px;
-        border-radius: 8px;
+        width: 48px;
+        height: 48px;
+        border-radius: 10px;
     }
 
     .link-card .link-title {
-        font-size: 15px;
+        font-size: 18px;
+    }
+
+    .link-card.link-with-image .link-title {
+        font-size: 18px;
+        text-align: center; /* ← teks rata tengah di mobile */
+    }
+
+    .link-card .link-icon {
+        font-size: 22px;
+        width: 32px;
     }
 
     .link-card .link-arrow {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .theme-toggle {
@@ -371,10 +409,10 @@ body {
         width: 40px;
         height: 40px;
         font-size: 18px;
-        border-radius: 12px; /* ← dari 50% jadi 12px (kotak) */
+        border-radius: 12px;
     }
 
-    /* ===== EFEK TAP UNTUK MOBILE (BUKAN HOVER) ===== */
+    /* ===== EFEK TAP UNTUK MOBILE ===== */
     .link-card:active {
         transform: scale(0.97);
         opacity: 0.8;
@@ -383,21 +421,26 @@ body {
 
 @media (max-width: 400px) {
     .link-thumbnail {
-        width: 36px;
-        height: 36px;
+        width: 40px;
+        height: 40px;
     }
 
     .link-card.link-with-image {
-        padding: 4px 8px 4px 4px;
-        gap: 8px;
+        padding: 8px 12px 8px 8px;
+        gap: 10px;
     }
 
     .link-card .link-title {
-        font-size: 14px;
+        font-size: 16px;
+    }
+
+    .link-card.link-with-image .link-title {
+        font-size: 16px;
+        text-align: center;
     }
 
     .link-card .link-arrow {
-        font-size: 11px;
+        font-size: 12px;
     }
 }
 
